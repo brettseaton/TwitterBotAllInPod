@@ -2,7 +2,12 @@ import feedparser
 import tweepy
 import time
 import os
+import keys
 
+def api(): 
+    auth = tweepy.OAuthHandler(keys.api_key, keys.api_secret)
+    auth.set_access_token(keys.access_token, keys.access_token_secret)
+    return tweepy.API(auth)
 client = tweepy.Client(bearer_token, api_key, api_secret, access_token, access_token_secret)
 
 # Authentication credentials
